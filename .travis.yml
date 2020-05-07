@@ -10,7 +10,14 @@ branches:
   - master
 before_script:
   - npm install -g @angular/cli
+  - ng lint
+  - ng test
 script:
 - ng build --prod --base-href https://bamanczak.github.io/pesel/
-- ng lint
-- ng test
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist/pesel
+  on:
+    branch: master
