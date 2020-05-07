@@ -10,9 +10,9 @@ branches:
   - master
 before_script:
   - npm install -g @angular/cli
-  - ng lint
-  - ng test
 script:
+- ng lint
+- ng test
 - ng build --prod --base-href https://bamanczak.github.io/pesel/
 deploy:
   provider: pages
